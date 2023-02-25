@@ -13,11 +13,11 @@ const StyledDiv = styled.div`
     }
 `
 const Title = () => {
-  return (
-    <StyledDiv>
-        <h1>무신사 Front-End 과제</h1>
-    </StyledDiv>
-  )
+    return (
+        <StyledDiv>
+            <h1>무신사 Front-End 과제</h1>
+        </StyledDiv>
+    )
 }
 
 export default Title

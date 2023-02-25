@@ -17,13 +17,14 @@ const StyledDiv = styled.div`
 `;
 
 function App() {
-  return (
-    <StyledDiv>
-      <Title />
-      <Filter />
-      <List />
-    </StyledDiv>
-  )
+
+    return (
+        <StyledDiv>
+        <Title />
+        <Filter />
+        <List />
+        </StyledDiv>
+    )
 }
 
 export default App

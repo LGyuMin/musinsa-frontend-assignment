@@ -42,28 +42,28 @@ const StyledDiv = styled.div`
 `;
 
 const ListItem = memo(() => {
-  return (
-    <StyledDiv>
-        <div className="info">
-            <p>
-                <span>name: </span>홍길동
-            </p>
-            <p>
-                <span>aliases: </span>소설 주인공, 도둑, 열혈청년
-            </p>
-            <p>
-                <span>title: </span>신홍길동전, 도둑들
-            </p>
-            <p>
-                <span>books: </span> 2
-            </p>
-            <p>
-                <span>tvSeries: </span> 4
-            </p>
-        </div>
-        <button className='btn'>삭제</button>
-    </StyledDiv>
-  )
+    return (
+        <StyledDiv>
+            <div className="info">
+                <p>
+                    <span>name: </span>홍길동
+                </p>
+                <p>
+                    <span>aliases: </span>소설 주인공, 도둑, 열혈청년
+                </p>
+                <p>
+                    <span>title: </span>신홍길동전, 도둑들
+                </p>
+                <p>
+                    <span>books: </span> 2
+                </p>
+                <p>
+                    <span>tvSeries: </span> 4
+                </p>
+            </div>
+            <button className='btn'>삭제</button>
+        </StyledDiv>
+    )
 })
 
 export default ListItem

@@ -9,17 +9,17 @@ const StyledDiv = styled.div`
 `;
 
 const List = () => {
-  return (
-    <StyledDiv>
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-    </StyledDiv>
-  )
+    return (
+        <StyledDiv>
+            <ListItem />
+            <ListItem />
+            <ListItem />
+            <ListItem />
+            <ListItem />
+            <ListItem />
+            <ListItem />
+        </StyledDiv>
+    )
 }
 
 export default List
