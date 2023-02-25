@@ -12,21 +12,23 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'musinsa';
         src: url(${MusinsaMediumWoff});
         src: url(${MusinsaMediumTtf}) format('truetype');
+        font-weight: 400;
     }
 
     @font-face {
         font-family: 'musinsa';
         src: url(${MusinsaLightWoff});
         src: url(${MusinsaLightTtf}) format('truetype');
-        font-weight: lighter;
+        font-weight: 100;
     }
 
     @font-face {
         font-family: 'musinsa';
         src: url(${MusinsaBoldWoff});
         src: url(${MusinsaBoldTtf}) format('truetype');
-        font-weight: bold;
+        font-weight: 700;
     }
+
     :root {
         font-family: 'musinsa', sans-serif;
         line-height: 1;
