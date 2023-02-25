@@ -1,6 +1,32 @@
 import { createGlobalStyle } from 'styled-components';
 
+import MusinsaBoldTtf from './font/musinsa-Bold.ttf';
+import MusinsaBoldWoff from './font/musinsa-Bold.woff';
+import MusinsaMediumTtf from './font/musinsa-Medium.ttf';
+import MusinsaMediumWoff from './font/musinsa-Medium.woff';
+import MusinsaLightTtf from './font/musinsa-Light.ttf';
+import MusinsaLightWoff from './font/musinsa-Light.woff';
+
 const GlobalStyle = createGlobalStyle`
+    @font-face {
+        font-family: 'musinsa';
+        src: url(${MusinsaMediumWoff});
+        src: url(${MusinsaMediumTtf}) format('truetype');
+    }
+
+    @font-face {
+        font-family: 'musinsa';
+        src: url(${MusinsaLightWoff});
+        src: url(${MusinsaLightTtf}) format('truetype');
+        font-weight: lighter;
+    }
+
+    @font-face {
+        font-family: 'musinsa';
+        src: url(${MusinsaBoldWoff});
+        src: url(${MusinsaBoldTtf}) format('truetype');
+        font-weight: bold;
+    }
     :root {
         font-family: 'musinsa', sans-serif;
         line-height: 1;
