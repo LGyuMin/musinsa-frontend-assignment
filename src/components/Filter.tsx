@@ -8,7 +8,7 @@ const StyledDiv = styled.div`
 
     button {
         width: 100%;
-        font-size: 20px;
+        font-size: 2rem;
         font-weight: 700;
         padding: 8px 15px;
         border: 2px solid #fff;

@@ -33,6 +33,7 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'musinsa', sans-serif;
         line-height: 1;
         font-weight: 400;
+        font-size: 10px;
 
         color-scheme: light dark;
         color: rgba(255, 255, 255, 1);
@@ -44,6 +45,11 @@ const GlobalStyle = createGlobalStyle`
         -moz-osx-font-smoothing: grayscale;
         -webkit-text-size-adjust: 100%;
     }
+
+    @media (max-width: 700px) {
+        :root { font-size: 7px; }
+    }
+
     a{
         text-decoration: none;
         color: inherit;

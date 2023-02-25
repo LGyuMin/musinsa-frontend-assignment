@@ -9,7 +9,7 @@ const StyledDiv = styled.div`
 
     h1 { 
         width: 100%;
-        font-size: 55px;
+        font-size: 5.5rem;
     }
 `
 const Title = () => {

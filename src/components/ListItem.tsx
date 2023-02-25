@@ -12,7 +12,7 @@ const StyledDiv = styled.div`
     padding: 20px;
 
     .info {
-        width: 70%;
+        width: 80%;
         font-size: 18px;
         display: grid;
         grid-template-columns: 1fr 1fr;
