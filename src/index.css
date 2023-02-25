@@ -1,3 +1,23 @@
+@font-face {
+    font-family: 'musinsa';
+    src: url('./assets/font/musinsa-Medium.woff');
+    src: url('./assets/font/musinsa-Medium.ttf')format('truetype');
+}
+
+@font-face {
+    font-family: 'musinsa';
+    src: url('./assets/font/musinsa-Light.woff');
+    src: url('./assets/font/musinsa-Light.ttf')format('truetype');
+    font-weight: lighter;
+}
+
+@font-face {
+    font-family: 'musinsa';
+    src: url('./assets/font/musinsa-Bold.woff');
+    src: url('./assets/font/musinsa-Bold.ttf')format('truetype');
+    font-weight: bold;
+}
+
 :root {
   font-family: 'musinsa', sans-serif;
   line-height: 1;
