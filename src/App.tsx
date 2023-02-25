@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
 import Title from './components/Title';
@@ -17,7 +17,15 @@ const StyledDiv = styled.div`
 `;
 
 function App() {
+    // useEffect(() => {
+    //     document.addEventListener('scroll', () => {
+    //         console.log('scroll!!');
+    //     })
 
+    //     return () => {
+    //         document.removeEventListener("scroll", () => {});
+    //     }
+    // }, [])
     return (
         <StyledDiv>
         <Title />
