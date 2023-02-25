@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components';
 
 const StyledDiv = styled.div`
+    height: 200px;
     display: flex;
     align-items: center;
     text-align: center;
-    padding: 75px;
 
     h1 { 
         width: 100%;

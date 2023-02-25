@@ -7,9 +7,7 @@ import List from './components/List';
 
 const StyledDiv = styled.div`
     max-width: 1000px;
-    min-width: 500px;
-    height: 100vh;
-    overflow-y: scroll;
+    min-width: 400px;
     display: flex;
     flex-direction: column;
     gap: 20px;

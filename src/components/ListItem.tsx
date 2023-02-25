@@ -9,10 +9,10 @@ const StyledDiv = styled.div`
     align-items: center;
     justify-content: space-between;
     border-radius: 10px;
-    padding: 20px;
+    padding: 2rem;
 
     .info {
-        width: 80%;
+        width: 75%;
         font-size: 18px;
         display: grid;
         grid-template-columns: 1fr 1fr;
