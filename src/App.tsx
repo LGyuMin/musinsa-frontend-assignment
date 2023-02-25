@@ -1,12 +1,28 @@
-import { useState } from 'react'
+import React from 'react';
+import styled from 'styled-components';
+
+import Title from './components/Title';
+import Filter from './components/Filter';
+import List from './components/List';
+
+const StyledDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 1000px;
+    min-width: 500px;
+    background: #000;
+    margin: 0 auto;
+    padding: 20px;
+`;
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-      <h1>무신사 과제</h1>
-    </div>
+    <StyledDiv>
+      <Title />
+      <Filter />
+      <List />
+    </StyledDiv>
   )
 }
 
