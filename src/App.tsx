@@ -6,11 +6,13 @@ import Filter from './components/Filter';
 import List from './components/List';
 
 const StyledDiv = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
     max-width: 1000px;
     min-width: 500px;
+    height: 100vh;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     background: #000;
     margin: 0 auto;
     padding: 20px;

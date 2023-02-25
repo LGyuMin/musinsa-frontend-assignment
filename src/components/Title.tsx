@@ -3,9 +3,9 @@ import styled from 'styled-components';
 
 const StyledDiv = styled.div`
     display: flex;
-    height: 250px;
     align-items: center;
     text-align: center;
+    padding: 75px;
 
     h1 { 
         width: 100%;
