@@ -1,5 +1,8 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import styled from 'styled-components';
+import classNames from 'classnames';
+import { useRecoilState } from 'recoil';
+import { IFilter, FilterAtom } from '../atoms/CharacterList';
 
 const StyledDiv = styled.div`
     display: flex;
@@ -17,22 +20,49 @@ const StyledDiv = styled.div`
         border-radius: 20px;
         cursor: pointer;
         transition: all .3s;
-        &:hover {
+        &:hover, &.selected {
             background: #fff;
             color: #000;
         }
     }
 `;
 
+interface IFilterBtn {
+    type: keyof IFilter | 'reset';
+    title: string;
+}
+
+const FilterBtnArr: IFilterBtn[] = [
+    { type: 'survived', title: '생존인물만' },
+    { type: 'female', title: '여자' },
+    { type: 'noTvSeries', title: 'tvSeries 없음' },
+    { type: 'reset', title: '초기화' }
+]
+
 const Filter = () => {
-  return (
-    <StyledDiv>
-        <button className='btn'>생존인물만</button>
-        <button className='btn'>여자</button>
-        <button className='btn'>tvSeries 없음</button>
-        <button className='btn'>초기화</button>
-    </StyledDiv>
-  )
+    const [filter, setFilter] = useRecoilState(FilterAtom);
+    const clickFilterBtn = useCallback((type: keyof IFilter | 'reset') => {
+        if (type === 'reset') {
+            console.log('reset');
+        } else {
+            setFilter(oldVal => ({...oldVal, [type]: !filter[type]}))
+        }
+    }, [filter])
+    return (
+        <StyledDiv>
+            {
+                FilterBtnArr.map(item => (
+                    <button 
+                        className={ classNames('btn', { selected: item.type !== 'reset' && filter[item.type] }) }
+                        key={item.type}
+                        onClick={() => clickFilterBtn(item.type)}
+                    >
+                        { item.title }
+                    </button>
+                ))
+            }
+        </StyledDiv>
+    )
 }
 
 export default Filter
