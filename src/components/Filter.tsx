@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react'
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { useRecoilState } from 'recoil';
-import { IFilter, FilterAtom } from '../atoms/CharacterList';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import { IFilter, FilterAtom, ListAtom } from '../atoms/CharacterList';
 
 const StyledDiv = styled.div`
     display: flex;
@@ -41,9 +41,10 @@ const FilterBtnArr: IFilterBtn[] = [
 
 const Filter = () => {
     const [filter, setFilter] = useRecoilState(FilterAtom);
+    const setList = useSetRecoilState(ListAtom);
     const clickFilterBtn = useCallback((type: keyof IFilter | 'reset') => {
         if (type === 'reset') {
-            console.log('reset');
+            setList(oldVal => oldVal.map(item => ({...item, deleted: false})))
         } else {
             setFilter(oldVal => ({...oldVal, [type]: !filter[type]}))
         }
