@@ -22,10 +22,10 @@ const List = () => {
     
     return (
         <StyledDiv>
-            { filteredCharactorList.map((item, index) => 
+            { filteredCharactorList.map(item => 
                     <ListItem 
                         listItem={item} 
-                        key={index}
+                        key={item.id}
                         deleteItem={deleteItem}
                     />
                 ) 

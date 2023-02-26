@@ -57,7 +57,7 @@ const ListItem = memo(({listItem, deleteItem}: IProp) => {
             <div className="info">
                 <p>
                     <span>name: </span> 
-                    { listItem.name }
+                    { listItem.name === '' ? '-' : listItem.name }
                 </p>
                 <p>
                     <span>aliases: </span>
