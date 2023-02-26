@@ -33,9 +33,9 @@ interface IFilterBtn {
 }
 
 const FilterBtnArr: IFilterBtn[] = [
-    { type: 'survived', title: '생존인물만' },
+    { type: 'died', title: '생존인물만' },
     { type: 'female', title: '여자' },
-    { type: 'noTvSeries', title: 'tvSeries 없음' },
+    { type: 'tvSeries', title: 'tvSeries 없음' },
     { type: 'reset', title: '초기화' }
 ]
 
