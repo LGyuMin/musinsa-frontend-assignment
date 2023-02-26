@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import { useSetRecoilState } from 'recoil';
@@ -7,6 +7,7 @@ import { ListAtom } from './atoms/CharacterList';
 import Title from './components/Title';
 import Filter from './components/Filter';
 import List from './components/List';
+import Loading from './components/Loading';
 
 const StyledDiv = styled.div`
     max-width: 1000px;
@@ -20,14 +21,24 @@ const StyledDiv = styled.div`
 `;
 
 function App() {
-    const setList = useSetRecoilState(ListAtom)
+    const setList = useSetRecoilState(ListAtom);
+    const [page, setPage] = useState(1);
+    const [loading, setLoading] = useState(false);
+
     useEffect(() => {
-        axios.get('https://www.anapioficeandfire.com/api/characters?page=2&pageSize=10')
+        getList();
+    }, [])
+
+    const getList = useCallback(() => {
+        if (loading) return;
+        setLoading(true);
+        setPage(page + 1)
+        axios.get(`https://www.anapioficeandfire.com/api/characters?page=${page}&pageSize=10`)
         .then(res => {
             const newList = res.data.map((item: any) => (
                 {
                     id: item.url,
-                    name: item.name === '' ? '-' : item.name,
+                    name: item.name,
                     aliases: item.aliases,
                     title: item.titles,
                     gender: item.gender,
@@ -35,28 +46,35 @@ function App() {
                     tvSeries: item.tvSeries[0] === '' ? 0 : item.tvSeries.length,
                     died: item.died
                 }
-            ))
+            ));
 
-            setList(oldVal => [...oldVal, ...newList])
+            setList(oldVal => [...oldVal, ...newList]);
+            setLoading(false);
         })
         .catch(err => {
             console.log(err);
         })
-    }, [])
-    // useEffect(() => {
-    //     document.addEventListener('scroll', () => {
-    //         console.log('scroll!!');
-    //     })
+    }, [page, loading])
 
-    //     return () => {
-    //         document.removeEventListener("scroll", () => {});
-    //     }
-    // }, [])
+    useEffect(() => {
+        const listener = () => {
+            if((window.innerHeight + window.scrollY + 10) >= document.body.offsetHeight) {
+                getList();
+            }
+        }
+        document.addEventListener('scroll', listener)
+
+        return () => {
+            document.removeEventListener("scroll", listener);
+        }
+    }, [getList])
+    
     return (
         <StyledDiv>
-        <Title />
-        <Filter />
-        <List />
+            { loading && <Loading /> }
+            <Title />
+            <Filter />
+            <List />
         </StyledDiv>
     )
 }
