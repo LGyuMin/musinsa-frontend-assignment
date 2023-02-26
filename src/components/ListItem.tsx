@@ -1,5 +1,6 @@
 import React, { memo } from 'react'
 import styled from 'styled-components';
+import { IListItem } from '../atoms/CharacterList';
 
 const StyledDiv = styled.div`
     width: 100%;
@@ -17,6 +18,10 @@ const StyledDiv = styled.div`
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 15px 5px;
+        p {
+            display: flex;
+            gap: 5px;
+        }
         p:nth-child(3) {
             grid-column: 1 / span 2;
         }
@@ -41,27 +46,37 @@ const StyledDiv = styled.div`
     }
 `;
 
-const ListItem = memo(() => {
+interface IProp {
+    listItem: IListItem
+    deleteItem: (id: string) => void
+}
+
+const ListItem = memo(({listItem, deleteItem}: IProp) => {
     return (
         <StyledDiv>
             <div className="info">
                 <p>
-                    <span>name: </span>홍길동
+                    <span>name: </span> 
+                    { listItem.name }
                 </p>
                 <p>
-                    <span>aliases: </span>소설 주인공, 도둑, 열혈청년
+                    <span>aliases: </span>
+                    { listItem.aliases[0] === '' ? '-' : listItem.aliases.join(', ')}
                 </p>
                 <p>
-                    <span>title: </span>신홍길동전, 도둑들
+                    <span>title: </span>
+                    { listItem.title[0] === '' ? '-' : listItem.title.join(', ')}
                 </p>
                 <p>
-                    <span>books: </span> 2
+                    <span>books: </span>
+                    { listItem.books }
                 </p>
                 <p>
-                    <span>tvSeries: </span> 4
+                    <span>tvSeries: </span>
+                    { listItem.tvSeries }
                 </p>
             </div>
-            <button className='btn'>삭제</button>
+            <button className='btn' onClick={() => deleteItem(listItem.id)}>삭제</button>
         </StyledDiv>
     )
 })

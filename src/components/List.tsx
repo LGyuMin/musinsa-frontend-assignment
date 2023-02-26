@@ -1,5 +1,7 @@
-import React from 'react'
+import React, {useCallback} from 'react'
 import styled from 'styled-components';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { ListAtom, FilteredList } from '../atoms/CharacterList';
 import ListItem from './ListItem';
 
 const StyledDiv = styled.div`
@@ -9,15 +11,25 @@ const StyledDiv = styled.div`
 `;
 
 const List = () => {
+    const [CharactorList, setCharactorList] = useRecoilState(ListAtom);
+    const filteredCharactorList = useRecoilValue(FilteredList)
+
+    const deleteItem = useCallback((id: string) => {
+        setCharactorList(oldVal =>  
+            oldVal.map(item => item.id === id ? {...item, deleted: true} : item)
+        )
+    }, [CharactorList])
+    
     return (
         <StyledDiv>
-            <ListItem />
-            <ListItem />
-            <ListItem />
-            <ListItem />
-            <ListItem />
-            <ListItem />
-            <ListItem />
+            { filteredCharactorList.map((item, index) => 
+                    <ListItem 
+                        listItem={item} 
+                        key={index}
+                        deleteItem={deleteItem}
+                    />
+                ) 
+            }
         </StyledDiv>
     )
 }
