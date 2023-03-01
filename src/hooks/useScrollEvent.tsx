@@ -55,7 +55,7 @@ const useScrollEvent = () => {
         setLoading(true);
 
         const listener = throttle(() => {
-            if((window.innerHeight + window.scrollY + 10) >= document.body.offsetHeight) {          
+            if((window.innerHeight + window.scrollY + 10) >= document.body.offsetHeight) {       
                 setLoading(true);
             }
         })

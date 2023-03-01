@@ -20,7 +20,14 @@ const StyledDiv = styled.div`
         border-radius: 20px;
         cursor: pointer;
         transition: all .3s;
-        &:hover, &.selected {
+        &.selected {
+            background: #fff;
+            color: #000;
+        }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        button:hover {  
             background: #fff;
             color: #000;
         }
