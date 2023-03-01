@@ -5,6 +5,7 @@ export interface IFilter {
     died: boolean
     female: boolean
     tvSeries: boolean
+    deleted: boolean
 }
 
 export const FilterAtom = atom<IFilter>({
@@ -12,11 +13,13 @@ export const FilterAtom = atom<IFilter>({
     default: {
         died: false,
         female: false,
-        tvSeries: false
+        tvSeries: false,
+        deleted: true
     }
 })
 
 export interface IListItem {
+    [K: string]: string | string[] | number | boolean
     id: string
     name: string
     aliases: string[]
@@ -40,11 +43,12 @@ export const FilteredList = selector({
         const filter = get(FilterAtom);
         let filteredList = get(ListAtom);
 
-        filteredList = filteredList.filter(item => !item.deleted)
-
-        if (filter.died) filteredList = filteredList.filter(item => item.died === '')
-        if (filter.female) filteredList = filteredList.filter(item => item.gender === 'Female')
-        if (filter.tvSeries) filteredList = filteredList.filter(item => item.tvSeries === 0)
+        for (let key in filter) {
+            if (filter[key]) {
+                if (key === 'female') filteredList = filteredList.filter(item => item.gender === 'Female')
+                else filteredList = filteredList.filter(item => !item[key])
+            } 
+        }
 
         return filteredList;
     }

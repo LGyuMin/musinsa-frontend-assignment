@@ -2,7 +2,18 @@ import { useState, useEffect, useCallback } from "react";
 import throttle from '../modules/Throttle';
 import axios from 'axios';
 import { useSetRecoilState } from 'recoil';
-import { ListAtom } from '../atoms/CharacterList';
+import { ListAtom, IListItem } from '../atoms/CharacterList';
+
+interface IResData {
+    url: string
+    name: string
+    aliases: string[]
+    titles: string[]
+    gender: 'Male' | 'Female'
+    books: string[]
+    tvSeries: string[]
+    died: string
+}
 
 const useScrollEvent = () => {
     const setList = useSetRecoilState(ListAtom);
@@ -12,7 +23,7 @@ const useScrollEvent = () => {
     const getList = useCallback(async () => {
         await axios.get(`https://www.anapioficeandfire.com/api/characters?page=${page}&pageSize=10`)
         .then(res => {
-            const newList = res.data.map((item: any) => (
+            const newList: IListItem[] = res.data.map((item: IResData) => (
                 {
                     id: item.url,
                     name: item.name,
