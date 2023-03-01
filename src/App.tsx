@@ -9,7 +9,7 @@ import Loading from './components/Loading';
 
 const StyledDiv = styled.div`
     max-width: 1000px;
-    min-width: 400px;
+    min-width: 300px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;

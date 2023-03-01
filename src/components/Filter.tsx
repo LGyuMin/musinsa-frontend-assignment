@@ -13,7 +13,7 @@ const StyledDiv = styled.div`
         width: 100%;
         font-size: 2rem;
         font-weight: 700;
-        padding: 8px 15px;
+        padding: 0.8rem 1.5rem;
         border: 2px solid #fff;
         background: #000;
         color: #fff;
