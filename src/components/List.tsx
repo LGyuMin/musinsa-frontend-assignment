@@ -8,6 +8,15 @@ const StyledDiv = styled.div`
     display: flex;
     flex-direction: column;
     gap: 15px;
+    .no-result {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 300px;
+        font-size: 2.5rem;
+        color: #fff;
+        text-align: center;
+    }
 `;
 
 const List = () => {
@@ -22,13 +31,18 @@ const List = () => {
     
     return (
         <StyledDiv>
-            { filteredCharactorList.map(item => 
-                    <ListItem 
-                        listItem={item} 
-                        key={item.id}
-                        deleteItem={deleteItem}
-                    />
-                ) 
+            {
+                filteredCharactorList.length > 0
+                ?
+                    filteredCharactorList.map(item => 
+                        <ListItem 
+                            listItem={item} 
+                            key={item.id}
+                            deleteItem={deleteItem}
+                        />
+                    ) 
+                :
+                <div className='no-result'>검색 결과가 없습니다.</div>
             }
         </StyledDiv>
     )
