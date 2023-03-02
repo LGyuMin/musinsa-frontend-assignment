@@ -18,6 +18,7 @@ const StyledDiv = styled.div`
         border-radius: 50%;
         border-top-color: #fff;
         animation: spin 1s ease-in-out infinite;
+        -webkit-animation: spin 1s ease-in-out infinite;
         margin: 0 auto;
     }
       
