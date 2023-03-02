@@ -22,9 +22,11 @@ const StyledDiv = styled.div`
     }
       
     @keyframes spin {
+        from { transform: rotate(0deg); }
         to { transform: rotate(360deg); }
     }
     @-webkit-keyframes spin {
+        from { transform: rotate(0deg); }
         to { transform: rotate(360deg); }
     }
 `
