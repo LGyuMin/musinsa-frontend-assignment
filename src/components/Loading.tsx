@@ -17,18 +17,18 @@ const StyledDiv = styled.div`
         border: 5px solid rgba(0, 0, 0, 0.65);
         border-radius: 50%;
         border-top-color: #fff;
+        -webkit-animation:spin 1s ease-in-out infinite;
         animation: spin 1s ease-in-out infinite;
-        -webkit-animation: webkit-spin 1s ease-in-out infinite;
         margin: 0 auto;
     }
-      
+    
+    @-webkit-keyframes spin {
+        from { -webkit-transform: rotate(0deg); }
+        to { -webkit-transform: rotate(360deg); }
+    }
     @keyframes spin {
         from { transform: rotate(0deg); }
         to { transform: rotate(360deg); }
-    }
-    @-webkit-keyframes webkit-spin {
-        from { -webkit-transform: rotate(0deg); }
-        to { -webkit-transform: rotate(360deg); }
     }
 `
 
