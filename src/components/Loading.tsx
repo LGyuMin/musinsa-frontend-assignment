@@ -18,7 +18,7 @@ const StyledDiv = styled.div`
         border-radius: 50%;
         border-top-color: #fff;
         animation: spin 1s ease-in-out infinite;
-        -webkit-animation: spin 1s ease-in-out infinite;
+        -webkit-animation: webkit-spin 1s ease-in-out infinite;
         margin: 0 auto;
     }
       
@@ -26,7 +26,7 @@ const StyledDiv = styled.div`
         from { transform: rotate(0deg); }
         to { transform: rotate(360deg); }
     }
-    @-webkit-keyframes spin {
+    @-webkit-keyframes webkit-spin {
         from { -webkit-transform: rotate(0deg); }
         to { -webkit-transform: rotate(360deg); }
     }
